@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+body {
+    min-height: 100vh;
+    overscroll-behavior: none;
+    background-color: #0d0d0d;
+    color: #f0f0f0;
+    padding-top: 68px;
+    margin: 0px;
+   overscroll-behavior: none;
+   display: flex;
+   flex-direction: column;
+
+}
+.h1container{
+    padding-top: 80px;
+    line-height: 1.1;
+    
+}
+:root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --card: #1e1e1e;
+    --accent: #f5c842;
+    --accent2: #ff6b35;
+    --text: #f0f0f0;
+    --muted: #888;
+    --border: #2a2a2a;
+}
+
+.Home_BackGround {
+    background-color: #0d0d0d;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+}
+
+.navbar_bg {
+    background-color: rgba(13, 13, 13, 0.92);
+    border-bottom: 2px solid #2a2a2a;
+
+}
+
+.logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: white;
+    
+}
+.logo:hover{color: #ffd700;}
+.span_logo {
+    color: #f5c842;
+}
+
+.admin {
+    color: #f0f0f0;
+    font-family: Roboto;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+
+.hero-text {
+    overflow: hidden;
+    padding-top: 80px;
+    line-height: 1.1;
+    font-size: 80px;
+}
+
+.center{
+    text-align: center;
+}
+
+.h1find {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 80px;
+    color: #f0f0f0;
+    line-height: 1.15;
+    display: flex;
+    flex-direction: column;
+}
+
+.h1ele {
+    color: #f5c842;
+}
+
+.line {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 0.6s ease forwards;
+}
+
+/* each line appears one after another */
+.line:nth-child(1) { animation-delay: 0.1s; }
+.line:nth-child(2) { animation-delay: 0.25s; }
+.line:nth-child(3) { animation-delay: 0.4s; }
+.line:nth-child(4) { animation-delay: 0.55s; }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    color: #888;
+    font-size: 25px;
+    margin-top: 1.2rem;
+    max-width: 480px;
+    line-height: 1.6;
+    animation: fadeUp 0.7s 0.2s ease both;
+}
+
+
+.search-wrap {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 700px;
+    /* Slightly wider to fit everything in one line */
+    display: flex;
+    align-items: center;
+    /* Vertically centers the icon, text, and button */
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 6px 8px 6px 1.1rem;
+    /* Padding for the whole bar */
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+/* 1. The Icon: Remove absolute positioning */
+.search-icon {
+    position: static;
+    transform: none;
+    margin-right: 0.8rem;
+    color: #888;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* 2. The Input: Remove border/background since the wrapper has them now */
+.search-wrap input {
+    flex: 1;
+    /* This makes the text box take up all available middle space */
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0;
+    color: var(--text);
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* 3. The Button: Remove absolute and right: 8px */
+.search-wrap button {
+    position: static;
+    transform: none;
+    margin-left: 10px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    white-space: nowrap;
+    /* Prevents text from wrapping */
+    cursor: pointer;
+}
+
+/* Focus effect moves to the wrapper now */
+.search-wrap:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(245, 200, 66, 0.1);
+}
+
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 5rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+    margin-bottom: 15rem;
+}
+
+.chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(245, 200, 66, 0.07);
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    background-color: #121212;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.home-flexbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

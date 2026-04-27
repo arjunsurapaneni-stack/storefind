@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/c0cf90d40d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{url_for('static',filename='admincss.css')}}">
+</head>
+<body>
+    <div class="Home_BackGround">
+        <nav class="navbar navbar-expand-lg w-100  navbar-dark navbar_bg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="/">Store<span class="span_logo">Find</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mb-10" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto mr-2 mb-10">
+                        <a class="nav-link active admin " href="/"><i class="fa-solid fa-arrow-left pr-2 view"></i> Customer View <span class="sr-only pr-2 ">(current)</span></a>
+                        <a class="nav-link active admin logout" href="/admin/logout"> Logout <i class="pl-1 fa-solid fa-arrow-right-from-bracket "></i><span class="sr-only">(current)</span></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="Home_BackGround pt-64px flexcon">
+    <div class="adminheading">
+    <h2 >Admin <span class="span_dash">Dashboard</span></h2>
+    </div>
+    <hr/>
+
+   <div class="stats-box">
+    <div class="stat-item">
+        <div class="stat-num">{{ product_count }}</div>
+        <div class="stat-label">Total Products</div>
+    </div>
+    <div class="divider"></div>
+    <div class="stat-item">
+        <div class="stat-num">{{ aisle_count }}</div>
+        <div class="stat-label">Total Aisles</div>
+    </div>
+</div>
+
+    <!--<h3 class="prodhead">Add New Product</h3>-->
+    
+    <form action="/admin/add_product" method="POST">
+        <div class="p-2 search-wrap">
+        <input type="text" name="name" placeholder="Product name" class="input-field mr-2 p-2" required/>
+        <input type="text" name="category" placeholder="Category" class="input-field mr-2 p-2"/>
+        <input type="text" name="shelf" placeholder="Shelf (e.g. Top Shelf)" class="input-field mr-2 p-2"/>
+        <select name="aisle_id" class="input-field mr-2 p-2 drop">
+            {% for aisle in aisles %}
+            <option value="{{ aisle['id'] }}">{{ aisle['aisle_number'] }} - {{ aisle['section_name'] }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <button type="submit" class="add-button">Add Product</button>
+    </form>
+
+    <hr/>
+
+    <form action="/admin/add_aisle" method="POST">
+        <div class="p-2 search-wrap">
+            <input type="text" name="aisle_code" placeholder="Aisle code(e.g. G1,H2)" class="input-field mr-2 p-2" required/>
+            <input type="text" name="section" placeholder="Section Name(e.g. Electronics)" class="input-field mr-2 p-2"/>
+            <button type="submit" class="add-button">Add Aisle</button>        
+        </div>
+    </form>
+
+    <hr/>
+
+
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %} 
+    
+    <form action="/admin/delete_aisle" method="POST">
+        <div class="p-2 search-wrap">
+            <input type="text" name="aisle_code" placeholder="Aisle code(e.g. G1,H2)" class="input-field mr-2 p-2" required/>
+            <button type="submit" class="add-button">Delete Aisle</button>        
+        </div>
+    </form>
+
+
+    <hr/>
+
+
+    <h3 style="color: white;">All Products</h3>
+
+    {% if products %}
+    <div class="table_con">
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 100px;">S.No</th>
+                <th style="width: 200px;">Product</th>
+                <th style="width: 150px;">Category</th>
+                <th style="width: 100px;">Aisle</th>
+                <th style="width: 150px;">Section</th>
+                <th style="width: 150px;">Shelf</th>
+                <th style="width: 100px;">Action</th>              
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in products %}
+            <tr style="height: 50px; width: 300px;">
+                <td >{{loop.index}}</td>
+                <td >{{p.name}}</td>
+                <td >{{p.category}}</td>
+                 <td ><span class="aisle_bg">{{p.aisle_number}}</span></td>
+                 <td>{{p.section_name}}</td>
+                 <td>{{p.shelf or '-'}}</td>
+            
+            <td>
+                <form method="POST" action="/admin/delete_product/{{ p.id }}" onsubmit="return confirm('Delete {{p.name}}?')">
+                    <button type="submit" class="btn-delete">Delete</button>
+                </form>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No Products Yet. Add above!</p>
+    {%endif%}
+    </div>
+</body>
+</html>
+

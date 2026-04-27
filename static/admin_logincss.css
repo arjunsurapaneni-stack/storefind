@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+body{
+    background: #1e1e1e;
+    color: #f0f0f0;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.login-box{
+    background: #1e1e1e;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.logo{
+    font-family: 'syne',sans-serif;
+    font-size: 1.8rem; font-weight: 800;
+    margin-bottom: 10px;
+}
+.span_logo{
+    color: #f5c842;
+}
+.admin-para{
+    color: #888;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+input[type="password"]{
+    width: 100%;
+    background: #111;
+    border: 1.5px solid #2a2a2a;
+    border-radius: 10px;
+    color: #888;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 0.9rem 1.2rem;
+
+}
+input[type="password"]:focus{
+    border-color: #f5c842;
+}
+button{
+    width: 100%;
+    background: #f5c842;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 18px;
+    transition: background 0.2s;
+}
+button:hover{background: #ffd700;}
+.back{
+    color: aliceblue;
+    font-size: 12px;
+}
+.error-msg {
+    background: rgba(255, 80, 80, 0.1);
+    border: 1px solid rgba(255, 80, 80, 0.3);
+    color: #ff5050;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+}

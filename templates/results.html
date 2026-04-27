@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/c0cf90d40d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{url_for('static',filename='results.css')}}">
+</head>
+<body>
+
+    <div class="Home_BackGround">
+
+    <nav class="navbar navbar-expand-lg w-100 navbar-dark navbar_bg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="/">Store<span class="span_logo">Find</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto mr-2">
+                    <a class="nav-link admin" href="/admin/login">
+                        <i class="fa-solid fa-unlock pr-2"></i> Admin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <h2 class="results-header">Results for <span class="product">"{{ query }}"</span></h2>
+
+    {% if results %}
+    <div class="results_container">
+        {% for item in results %}
+        <div class="card results_section">
+            <h3>{{ item['name'] }}</h3>
+            <hr>
+            <p><strong>Aisle:</strong> {{ item['aisle_number'] }}</p>
+            <p><strong>Section:</strong> {{ item['section_name'] }}</p>
+            <p><strong>Shelf:</strong> {{ item['shelf'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="no-results">No results found for "{{ query }}"</p>
+    {% endif %}
+
+    <a href="/" class="back-btn">← Back to Home</a>
+
+</div>
+</body>
