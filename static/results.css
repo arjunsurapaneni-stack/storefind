@@ -135,3 +135,72 @@ body {
     color: #000;
     text-decoration: none;
 }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+
+    /* MAIN BACKGROUND */
+    .Home_BackGround {
+        padding: 70px 1rem 2rem;
+    }
+
+    /* RESULTS HEADER */
+    .results-header {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+        margin-top: 0.5rem;
+    }
+
+    /* CARDS GRID — single column on mobile */
+    .results_container {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+        max-width: 100%;
+        margin: 0 0 1.5rem;
+    }
+
+    /* SINGLE CARD */
+    .results_section {
+        padding: 1rem;
+    }
+
+    .results_section h3 {
+        font-size: 1rem;
+    }
+
+    .results_section p {
+        font-size: 0.85rem;
+    }
+
+    /* BACK BUTTON */
+    .back-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* NO RESULTS */
+    .no-results {
+        font-size: 0.95rem;
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+
+    /* NAVBAR */
+    .logo {
+        font-size: 1.2rem;
+    }
+}
+
+/* ── VERY SMALL PHONES ── */
+@media (max-width: 400px) {
+
+    .results-header {
+        font-size: 1.2rem;
+    }
+
+    .results_section {
+        padding: 0.8rem;
+    }
+}

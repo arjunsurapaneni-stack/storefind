@@ -208,3 +208,125 @@ tr:hover{
       font-family: 'DM Sans', sans-serif; transition: background 0.2s;
     }
 .btn-delete:hover { background: #ff6b3540; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+
+    /* BODY */
+    body {
+        padding-top: 60px;
+    }
+
+    /* ADMIN HEADING */
+    .adminheading {
+        padding-top: 40px;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .span_dash {
+        font-size: 20px;
+    }
+
+    /* STATS BOX */
+    .stats-box {
+        gap: 1rem;
+        padding: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .stat-num {
+        font-size: 1.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    /* FLEX CONTAINER */
+    .flexcon {
+        padding: 0 1rem;
+    }
+
+    /* INPUT FIELDS */
+    .input-field {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    /* SEARCH WRAP */
+    .search-wrap {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 0.8rem;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    /* ADD BUTTON */
+    .add-button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    /* TABLE — scroll horizontally on mobile */
+    .table_con {
+        overflow-x: auto;
+        display: block;
+        font-size: 0.82rem;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th {
+        padding: 8px;
+        font-size: 0.78rem;
+    }
+
+    td {
+        padding: 10px 8px;
+        font-size: 0.82rem;
+    }
+
+    /* LOGOUT BUTTON */
+    .logout {
+        width: 80px;
+        font-size: 0.8rem;
+        padding: 4px;
+    }
+
+    /* NAVBAR */
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* PRODUCT HEADING */
+    .prodhead {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+/* ── VERY SMALL PHONES ── */
+@media (max-width: 400px) {
+
+    .adminheading {
+        font-size: 22px;
+    }
+
+    .stat-num {
+        font-size: 1.1rem;
+    }
+
+    table {
+        min-width: 500px;
+    }
+
+    td, th {
+        padding: 6px;
+        font-size: 0.75rem;
+    }
+}
