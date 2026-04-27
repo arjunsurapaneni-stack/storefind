@@ -260,22 +260,32 @@ footer a {
     }
 
     /* SEARCH BAR */
-     .search-wrap {
+         .search-wrap {
         max-width: 95%;
         padding: 4px 4px 4px 0.8rem;
+        position: relative;
     }
 
-    .search-wrap button {
+    .input_text {
+        min-width: 0;
+        flex: 1;
+        font-size: 0.9rem;
+    }
+
+    .autocomplete-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+
+    .find {
         padding: 8px 12px;
         font-size: 0.8rem;
         border-radius: 8px;
         white-space: nowrap;
         flex-shrink: 0;
-    }
-
-    .search-wrap input {
-        min-width: 0;
-        font-size: 0.9rem;
     }
     /* CATEGORIES */
     .categories {
